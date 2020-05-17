@@ -1,15 +1,8 @@
-package org.academiadecodigo.ramsters.hackathon.persistence.model;
+package org.academiadecodigo.ramsters.hackathon.command;
 
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "beach")
-public class Beach extends AbstractModel {
+public class BeachDto {
 
     private String name;
-
-    @Id
     private String address;
     private String img;
     private String status;
@@ -30,12 +23,12 @@ public class Beach extends AbstractModel {
         this.address = address;
     }
 
-    public String getImg() {
+    public String getUrlImg() {
         return img;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setUrlImg(String urlImg) {
+        this.img = urlImg;
     }
 
     public String getStatus() {

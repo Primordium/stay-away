@@ -1,5 +1,8 @@
 package org.academiadecodigo.ramsters.hackathon.persistence.dao;
 
-public interface BeachDao {
+
+import org.academiadecodigo.ramsters.hackathon.persistence.model.Beach;
+
+public interface BeachDao extends GenericDao<Beach>{
 
 }
