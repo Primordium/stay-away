@@ -1,20 +1,34 @@
-package org.academiadecodigo.ramsters.hackathon.persistence.model;
+package org.academiadecodigo.ramsters.hackathon.command;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.*;
 
-@Entity
-@Table(name = "user")
-public class User extends AbstractModel {
+public class UserDto {
 
-    @Id
     private String username;
+
+
+    @NotNull(message = "Pass is mandatory")
+    @NotBlank(message = "Pass is mandatory")
+    @Size(min = 3, max = 64)
     private String pass;
+
+    @NotNull(message = "First name is mandatory")
+    @NotBlank(message = "First name is mandatory")
+    @Size(min = 3, max = 64)
     private String firstName;
+
+    @NotNull(message = "First name is mandatory")
+    @NotBlank(message = "First name is mandatory")
+    @Size(min = 3, max = 64)
     private String lastName;
+
+    @Email
+    @NotBlank(message = "Email is mandatory")
     private String email;
-    private Integer phone;
+
+    @Pattern(regexp = "^\\+?[0-9]*$", message = "Phone number contains invalid characters")
+    @Size(min = 9, max = 16)
+    private String phone;
 
     public String getUsername() {
         return username;
@@ -56,12 +70,11 @@ public class User extends AbstractModel {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
-
 }
